@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 218, 255, 246),
+      backgroundColor: Color.fromARGB(255, 228, 228, 228),
       appBar: AppBar(
         title: Text(widget.title),
       ),
@@ -55,41 +55,51 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class CardData {
   final String title;
-  final String description;
+  final String subtitle;
+  final String description1;
+  final String description2;
+  final String description3;
+  final int price;
   final String imageUrl;
 
-  CardData(
-      {required this.title, required this.description, required this.imageUrl});
+  CardData({
+    required this.title,
+    required this.subtitle,
+    required this.description1,
+    required this.description2,
+    required this.description3,
+    required this.price,
+    required this.imageUrl,
+  });
 }
 
 final List<CardData> cardDataList = [
   CardData(
-    title: 'PHP',
-    description:
-        'PHP is a popular open-source server-side scripting language that was originally designed for web development but has since been used for a wide range of programming tasks. It was created by Rasmus Lerdorf in 1994 and has since been developed by a large community of contributors.',
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/1200px-PHP-logo.svg.png',
+    title: 'Microsoft',
+    subtitle: 'Surface Laptop 4 15"',
+    description1: '15 inch screen',
+    description2: 'AMD Ryzen 7',
+    description3: '32gb of RAM',
+    price: 333,
+    imageUrl: 'https://content.rozetka.com.ua/goods/images/big/269608304.jpg',
   ),
   CardData(
-    title: 'Ruby',
-    description:
-        'Ruby is a high-level, dynamic, object-oriented programming language that was designed and developed in Japan in the mid-1990s by Yukihiro "Matz" Matsumoto. It is a general-purpose language that is widely used for web development, scripting, prototyping, and building desktop applications.',
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/1200px-Ruby_logo.svg.png',
+    title: 'Microsoft',
+    subtitle: 'Surface Laptop 4 15"',
+    description1: '15 inch screen',
+    description2: 'AMD Ryzen 7',
+    description3: '32gb of RAM',
+    price: 400,
+    imageUrl: 'https://content.rozetka.com.ua/goods/images/big/321938773.jpg',
   ),
   CardData(
-    title: 'Java',
-    description:
-        'Java is a general-purpose, high-level programming language that was first released in 1995 by Sun Microsystems. It is designed to be platform-independent, meaning that code written in Java can run on any platform that has a Java Virtual Machine (JVM) installed.',
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/ru/thumb/3/39/Java_logo.svg/1200px-Java_logo.svg.png',
-  ),
-  CardData(
-    title: 'Python',
-    description:
-        'Python is a high-level, interpreted programming language that was first released in 1991 by Guido van Rossum. It has since become one of the most popular programming languages in the world, known for its simplicity, readability, and ease of use.',
-    imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png',
+    title: 'Microsoft',
+    subtitle: 'Surface Laptop 4 15"',
+    description1: '15 inch screen',
+    description2: 'AMD Ryzen 7',
+    description3: '32gb of RAM',
+    price: 600,
+    imageUrl: 'https://content1.rozetka.com.ua/goods/images/big/144249716.jpg',
   ),
 ];
 
@@ -121,50 +131,123 @@ class _CardSliderState extends State<CardSlider> {
         Expanded(
             child: Padding(
           padding: EdgeInsets.all(20),
-          child: Container(
-            height: 600,
-            width: 550,
-            decoration: BoxDecoration(
-              color: Color(0xFF18A2A5).withOpacity(0.5),
-              borderRadius: BorderRadius.all(Radius.circular(30.0)),
-            ),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(29),
-              ),
-              child: Column(
-                children: [
-                  Image.network(cardDataList[_currentIndex].imageUrl,
-                      width: 500, height: 500, fit: BoxFit.scaleDown),
-                  ListTile(
-                    title: Text(
-                      cardDataList[_currentIndex].title,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(cardDataList[_currentIndex].description),
-                  ),
-                ],
-              ),
-              color: Color(0xFFB3E2D6),
-            ),
-          ),
-        )),
-        Padding(
-          padding: EdgeInsets.all(20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ElevatedButton(
+              IconButton(
                 onPressed: _previousCard,
-                child: Icon(Icons.arrow_back),
+                icon: Icon(Icons.arrow_back),
               ),
-              ElevatedButton(
+              Container(
+                height: 600,
+                width: 350,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                ),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(29),
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                          title: new Row(
+                            children: <Widget>[
+                              new Text(
+                                cardDataList[_currentIndex].title,
+                                style: new TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 25.0),
+                              ),
+                            ],
+                            mainAxisAlignment: MainAxisAlignment.center,
+                          ),
+                          subtitle: new Row(
+                            children: <Widget>[
+                              Text(cardDataList[_currentIndex].subtitle),
+                            ],
+                            mainAxisAlignment: MainAxisAlignment.center,
+                          )),
+                      Image.network(cardDataList[_currentIndex].imageUrl,
+                          width: 300, height: 300, fit: BoxFit.scaleDown),
+                      ListTile(
+                        title: Text(
+                          "Characteristics",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(20),
+                        child: Column(children: [
+                          Row(children: [
+                            Text(
+                              "\u2022",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              child: Text(
+                                cardDataList[_currentIndex].description1,
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            )
+                          ]),
+                          Row(children: [
+                            Text(
+                              "\u2022",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              child: Text(
+                                cardDataList[_currentIndex].description2,
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            )
+                          ]),
+                          Row(children: [
+                            Text(
+                              "\u2022",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Expanded(
+                              child: Text(
+                                cardDataList[_currentIndex].description3,
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            )
+                          ]),
+                          Text("Price:${cardDataList[_currentIndex].price}",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500,
+                              ))
+                        ]),
+                      ),
+                      ElevatedButton(
+                        onPressed: _nextCard,
+                        child: new Text("Add to Cart"),
+                      )
+                    ],
+                  ),
+                  color: Color.fromARGB(255, 211, 211, 211),
+                ),
+              ),
+              IconButton(
                 onPressed: _nextCard,
-                child: Icon(Icons.arrow_forward),
+                icon: Icon(Icons.arrow_forward),
               ),
             ],
           ),
-        ),
+        )),
       ],
     );
   }
