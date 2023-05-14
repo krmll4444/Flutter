@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "856728632957",
+    "project_id": "flutter-prox",
+    "storage_bucket": "flutter-prox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856728632957:android:5b84b5753f70d27f3b3b14",
+        "android_client_info": {
+          "package_name": "com.example.shoppy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856728632957-ovhrkrmqjgfpndmnouhm251reh39vk9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgirLyw_F8ZHMJSPGrci-ojFZhG7ejk_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856728632957-ovhrkrmqjgfpndmnouhm251reh39vk9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
